@@ -1,0 +1,26 @@
+FROM ubuntu:16.04
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+		apache2 \
+		
+	&& rm -r /var/lib/apt/lists/* \
+	&& apt-get clean
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
+#COPY default.conf /etc/apache2/sites-available/default
+#COPY 20-xdebug.ini /etc/php5/conf.d/20-xdebug.ini
+
+RUN a2enmod rewrite && a2enmod expires 
+#&& touch /var/log/cron.log && cron
+
+WORKDIR /home/www/magento
+
+EXPOSE 95
+
+#VOLUME /var/log/ ../.log
+
+#CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
