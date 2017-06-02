@@ -6,11 +6,11 @@ services:
       dockerfile: Dockerfile-app
     environment:
       APP_ENV: dev
-#    command: bash -c "crontab .admin/crontab.conf && service cron start && .admin/chmod e-krzeslo && /usr/sbin/apache2ctl -D FOREGROUND"
-#    volumes:
-#      - ./:/home/www/ec24h.pl
+    command: bash -c "/usr/sbin/apache2ctl -D FOREGROUND"
+    volumes:
+      - ./magento:/home/www/magento
     ports:
-      - 95:80
+      - 80:80
     tty: true
 #    depends_on:
 #      - mysql
