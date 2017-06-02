@@ -24,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: droot
       MYSQL_DATABASE: magento_manymornings
       MYSQL_USER: magento
-      MYSQL_PASSWORD: m4g3nto$m0rnings
+      MYSQL_PASSWORD: m4g3nto@m0rnings
     volumes:
       - ./data/mysql:/var/lib/mysql
      # - ./docker/mysql/conf.d:/etc/mysql/conf.d

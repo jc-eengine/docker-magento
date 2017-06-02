@@ -9,6 +9,10 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
 		apache2 \
         nano \
+        vim \
+        cron \
+		mysql-client \
+        mc \
     && apt-get install -y --allow-unauthenticated \
         php7.0 \ 
         libapache2-mod-php7.0 \
@@ -39,7 +43,3 @@ WORKDIR /home/www/magento
 RUN a2enconf servername && a2enmod rewrite && a2enmod expires 
 
 EXPOSE 80
-
-#VOLUME /var/log/ ../.log
-
-#CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
